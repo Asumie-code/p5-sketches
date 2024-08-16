@@ -1,0 +1,9 @@
+mat-grid-tile {
+    background: lightblue;
+  }
+
+app-sketch-card {
+  display: inline-block; 
+  max-width: 350px;
+  margin: 15px
+}

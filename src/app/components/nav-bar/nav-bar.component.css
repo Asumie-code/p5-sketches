@@ -1,3 +1,14 @@
 .example-spacer {
     flex: 1 1 auto;
   }
+  a {
+    margin-left: 5px;
+  }
+
+  a:nth-child(odd) { 
+    font-size: 20px;
+  }
+  a:nth-child(even) { 
+    font-size: 15px;
+  }
+  
