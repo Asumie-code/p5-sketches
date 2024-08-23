@@ -1,9 +1,13 @@
-mat-grid-tile {
-    background: lightblue;
-  }
+.flex-grid {
+  display: flex-wrap;
+  
+}
 
+.col {
+  flex:
+}
 app-sketch-card {
   display: inline-block; 
   max-width: 350px;
-  margin: 15px
+  margin: 20px
 }
