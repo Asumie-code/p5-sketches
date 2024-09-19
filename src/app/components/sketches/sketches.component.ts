@@ -3,6 +3,9 @@ import { MatGridListModule} from '@angular/material/grid-list'
 import { SketchCardComponent } from '../sketch-card/sketch-card.component';
 import { SketchComponent } from "../sketch/sketch.component";
 import { CommonModule } from '@angular/common';
+import data from '../../data/data';
+
+
 
 @Component({
   selector: 'app-sketches',
@@ -12,5 +15,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './sketches.component.css'
 })
 export class SketchesComponent {
+  data = data
 
 }

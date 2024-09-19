@@ -1,12 +1,22 @@
 
-  
-  .example-header-image {
+  .card {
+    background: black;
+    box-shadow: 2px 2px 4px  black; 
+    
+  }
+
+  .card img {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
+    margin-bottom: 5px; 
+    border-radius: 5px;  
+    
   }
 
   a {
     display: block; 
     text-decoration: none; 
-    color: black; 
+    color: white; 
+    
+    
   }
