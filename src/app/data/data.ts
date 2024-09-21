@@ -2,42 +2,42 @@ const data: {title: string, desc: string, path: string}[] = [
     {
         title: "some title", 
         desc: "some desc", 
-        path: 'fdsafdsa'
+        path: "test"
     }, 
     {
         title: "some title", 
         desc: "some desc", 
-        path: 'fdsafdsa'
+        path: "test"
     }, 
     {
         title: "some title", 
         desc: "some desc", 
-        path: 'fdsafds'
+        path: "test"
     }, 
     {
         title: "some title", 
         desc: "some desc", 
-        path: 'fdsafdsa'
+        path: "test"
     }, 
     {
         title: "some title", 
         desc: "some desc", 
-        path: 'fdsafdsa'
+        path: "test"
     }, 
     {
         title: "some title", 
         desc: "some desc", 
-        path: 'fdsa'
+        path: "test"
     }, 
     {
         title: "some title", 
         desc: "some desc", 
-        path: 'gfdsgfds'
+        path: "test"
     }, 
     {
         title: "some title", 
         desc: "some desc", 
-        path: 'fdsomepath'
+        path: "test"
     }, 
     
 ]
