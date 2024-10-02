@@ -1,10 +1,12 @@
 {
   "name": "p5-sketches",
+  "homepage": "https://Asumie-code.githube.io/p5-sketches",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "deploy": "gh-pages -d dist",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -21,6 +23,7 @@
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
     "@types/p5": "^1.7.6",
+    "gh-pages": "^6.1.1",
     "p5": "^1.10.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
