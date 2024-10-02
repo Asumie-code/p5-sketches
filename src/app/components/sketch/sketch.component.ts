@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router, ParamMap, ActivatedRoute} from '@angular/router'
+import { ActivatedRoute} from '@angular/router'
 import p5 from 'p5'
 
 
