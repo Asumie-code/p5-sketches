@@ -32,4 +32,4 @@ jobs:
             - name: Build
               run: npm run build
             - name: Deploy 🚀
-              run: npm run  ng deploy  --repo=https://github.com/Asumie-code/p5-sketches
+              run: npm run  ng -- deploy  --repo=https://github.com/Asumie-code/p5-sketches
