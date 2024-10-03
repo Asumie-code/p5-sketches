@@ -31,7 +31,6 @@ jobs:
 
             - name: Build
               run: npm run build
-            # - name: Deploy 🚀
-            #   uses: JamesIves/github-pages-deploy-action@v4
-            #   with:
-            #     folder: dist/p5-sketches # The folder the action should deploy.
+            - name: deploy 
+              run: 
+                 npm run ng -- deploy --base-href=/p5-sketch/ --name="Asumie-code" --email=darkeangel.1998.ia@gmail.com
