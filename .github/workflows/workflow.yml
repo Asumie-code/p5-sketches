@@ -34,3 +34,4 @@ jobs:
             - name: deploy 
               run: 
                  npm run ng -- deploy --base-href=/p5-sketch/ --name="Asumie-code" --email=darkeangel.1998.ia@gmail.com
+                 --repo=https://github.com/Asumie-code/p5-sketches
