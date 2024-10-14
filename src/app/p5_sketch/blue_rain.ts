@@ -44,7 +44,8 @@ export const sketch = (s: p5) => {
 
 
     s.setup = () => {
-        s.createCanvas(640, 360)
+        let canvas = s.createCanvas(640, 360)
+        canvas.parent('sketch-holder');
         for(let i = 0; i < 250; i++) {
             d[i] = new Drop(s, s.random(s.width), s.random(-500, -50), s.random(4, 9),  s.random(0, 20))
         }

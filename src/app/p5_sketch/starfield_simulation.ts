@@ -57,7 +57,8 @@ export const sketch = (s: p5) => {
     
     
     s.setup = () => {
-        s.createCanvas(600, 600)
+        let canvas = s.createCanvas(600, 600)
+        canvas.parent('sketch-holder');
         for (let i = 0; i < 800; i++) {
             stars[i] = new Star(s)
         }

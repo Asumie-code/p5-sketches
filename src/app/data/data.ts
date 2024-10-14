@@ -17,7 +17,7 @@ const data: {title: string, desc: string, path: string}[] = [
     {
         title: "some title", 
         desc: "some desc", 
-        path: "falling_sand"
+        path: "snake_game"
     }, 
     {
         title: "some title", 
