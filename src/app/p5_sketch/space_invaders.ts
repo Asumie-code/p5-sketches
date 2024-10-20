@@ -10,7 +10,12 @@ class Ship {
 
     show(s: p5) {
         s.fill(255)
-        s.rect(this.x, s.height - 20 , 20, 20)
+        s.rectMode(s.CENTER)
+        s.rect(this.x, s.height - 20 , 20, 60)
+    }
+
+    move(dir: number)  {
+        this.x += dir * 5
     }
 }
 
@@ -29,5 +34,10 @@ class Ship {
         s.background(51)
         ship.show(s)
 
+    }
+
+    s.keyPressed = () => {
+        if(s.keyCode === s.RIGHT_ARROW) ship.move(1) 
+            else if (s.keyCode === s.LEFT_ARROW) ship.move(-1)
     }
  }
