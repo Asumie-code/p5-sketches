@@ -1,6 +1,29 @@
 import p5 from 'p5'
 
 
+
+class Drop {
+    x: number 
+    y: number 
+    constructor(x: number, y: number) {
+        this.x = x 
+        this.y = y 
+    }
+
+    show(s: p5) {
+        s.noStroke()
+        s.fill(50, 0, 200)
+        s.ellipse(this.x, this.y , 16, 16)
+    }
+
+    move() { 
+        this.y = this.y - 1
+    }
+}
+
+
+
+
 class Flower {
     x: number 
     y: number 
@@ -46,7 +69,7 @@ class Ship {
         let canvas = s.createCanvas(500, 500)
         canvas.parent('sketch-holder')
         ship = new Ship(s)
-        for (let i = 0; i < flowers.length; i++) {
+        for (let i = 0; i < 5; i++) {
             flowers[i] = new Flower(s, i*80+80, 60)
             
         }
@@ -56,7 +79,7 @@ class Ship {
     s.draw = () => {
         s.background(51)
         ship.show(s)
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < flowers.length; i++) {
             flowers[i].show(s)
             
         }
