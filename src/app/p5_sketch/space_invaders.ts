@@ -17,7 +17,7 @@ class Drop {
     }
 
     move() { 
-        this.y = this.y - 1
+        this.y = this.y - 2
     }
 }
 
@@ -65,6 +65,7 @@ class Ship {
  export const sketch = (s: p5) => {
     let ship: Ship
     let flowers: Flower[] =  []
+    let drops: Drop[] = []
     s.setup = () => {
         let canvas = s.createCanvas(500, 500)
         canvas.parent('sketch-holder')
@@ -83,11 +84,22 @@ class Ship {
             flowers[i].show(s)
             
         }
+        for (let i = 0; i < drops.length; i++) {
+            drops[i].show(s)
+            drops[i].move()
+            
+        }
+        for (let i = 0; i < drops.length; i++) {
+            drops[i].show(s)
+            drops[i].move()
+            
+        }
 
     }
 
     s.keyPressed = () => {
         if(s.keyCode === s.RIGHT_ARROW) ship.move(1) 
             else if (s.keyCode === s.LEFT_ARROW) ship.move(-1)
+        if(s.key === ' ') drops.push( new Drop(ship.x, s.height))
     }
  }
