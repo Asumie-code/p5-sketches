@@ -5,14 +5,16 @@ class Cell {
   pos: p5.Vector 
   r: number
   c: p5.Color
-  constructor(s: p5, pos: p5.Vector = s.createVector(s.random(s.width), s.random(s.height)), r: number = 60, c: p5.Color = s.color(s.random(100, 255), 0, s.random(100, 255))) {
-    this.pos = pos
+  constructor(s: p5, pos: p5.Vector = s.createVector(s.random(s.width), s.random(s.height)), r: number = 60, c: p5.Color = s.color(s.random(0, 255), 0, s.random(0, 255), 100)) {
+    this.pos = pos.copy()
     this.r = r
     this.c = c
   } 
 
   mitosis(s: p5) {
-    let cell = new Cell(s, this.pos, this.r/2, this.c)
+    this.pos.y += s.random(-20, 10)
+    this.pos.x += s.random(-20, 10)
+    let cell = new Cell(s, this.pos, this.r * .9, s.color(s.random(100,255),0,s.random(100, 255), 100))
     return cell
   }
 
@@ -48,7 +50,7 @@ export const sketch = (s: p5) => {
 
 
     s.draw = () => {
-        s.background(51)
+        s.background(200)
         for(let cell of cells) {
           cell.move(s) 
           cell.show(s)
@@ -57,9 +59,12 @@ export const sketch = (s: p5) => {
 
 
     s.mousePressed = () => {
-      for(let cell of cells) {
-        if ( cell.clicked(s, s.mouseX, s.mouseY)) {
-          console.log('clicked')
+      for(let i = cells.length - 1; i >= 0; i-- ) {
+        if ( cells[i].clicked(s, s.mouseX, s.mouseY)) {
+          cells.push(cells[i].mitosis(s))
+          cells.push(cells[i].mitosis(s))
+          cells.splice(i, 1)
+
         }
 
       }
