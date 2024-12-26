@@ -1,1 +1,0 @@
-import"./chunk-7KJRK3NW.js";var e=class{constructor(a,s,h){this.radius=s,this.distance=h,this.angle=0}show(a){a.fill(255),a.ellipse(0,0,this.radius*2,this.radius*2)}},i=t=>{let a;t.setup=()=>{t.createCanvas(600,600).parent("sketch-holder"),a=new e(t,100,0)},t.draw=()=>{t.background(0),t.translate(t.width/2,t.height/2),a.show(t)}};export{i as sketch};
