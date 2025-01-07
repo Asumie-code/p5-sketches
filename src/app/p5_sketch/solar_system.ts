@@ -5,32 +5,43 @@ class Planet {
     angle: number
     distance: number
     planets: Planet[]
-    constructor(s: p5, r: number, d: number ) {
+    orbitSpeed: number
+    constructor(s: p5, r: number, d: number, o: number ) {
         this.radius = r 
         this.distance = d
-        this.angle = 0
+        this.angle = s.random(s.TWO_PI)
         this.planets = []
+        this.orbitSpeed = o
     }
 
     spawnMoons(s: p5, total: number) {
         for( let i = 0; i < total; i++) { 
-            this.planets.push(new Planet(s, this.radius * 0.5, s.random(75, 300) ))
+            this.planets.push(new Planet(s, this.radius * 0.5, s.random(75, 300), s.random(0.01, 0.1) ))
         }
     }
 
 
+    orbit() {
+        this.angle += this.orbitSpeed 
+        if(this.planets.length !== 0) {
+            for(let planet of this.planets) {
+                planet.orbit()
+                
+            }
+        }
+    }
+
     show(s: p5) {
         s.push()
-        s.translate(this.distance, 0)
         s.rotate(this.angle)
+        s.translate(this.distance, 0)
         s.fill(255, 100)
         s.ellipse(0, 0, this.radius * 2, this.radius * 2 )
         if(this.planets.length !== 0) {
             for(let planet of this.planets) {
                 planet.show(s)
-                console.log(this.planets)
+                
             }
-
         }
         s.pop()
     }
@@ -47,7 +58,7 @@ export const sketch = (s: p5) => {
         // creating a reference to the div here positions it so you can put things above and below
         // where the sketch is displayed
         canvas2.parent('sketch-holder');
-        sun = new Planet(s, 50, 0)
+        sun = new Planet(s, 50, 0, 0)
         sun.spawnMoons(s, 5)
     }
 
@@ -56,6 +67,7 @@ export const sketch = (s: p5) => {
         s.background(0)
         s.translate(s.width / 2, s.height / 2)
         sun.show(s)
+        sun.orbit()
     }
 
 }
