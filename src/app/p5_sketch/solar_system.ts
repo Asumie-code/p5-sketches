@@ -14,9 +14,17 @@ class Planet {
         this.orbitSpeed = o
     }
 
-    spawnMoons(s: p5, total: number) {
+    spawnMoons(s: p5, total: number, level: number) {
         for( let i = 0; i < total; i++) { 
-            this.planets.push(new Planet(s, this.radius * 0.5, s.random(75, 300), s.random(0.01, 0.1) ))
+            let r = this.radius / (level * 2)
+            let d = s.random(75, 300)
+            let o = s.random(-0.01, 0.04)
+            this.planets.push(new Planet(s ,r ,d ,o))
+            this.planets[i] = new Planet(s, r, d / level, o)
+            if( level < 2) {
+                let num = s.random(0, 4)
+                this.planets[i].spawnMoons(s, num, level + 1)
+            }
         }
     }
 
@@ -59,7 +67,7 @@ export const sketch = (s: p5) => {
         // where the sketch is displayed
         canvas2.parent('sketch-holder');
         sun = new Planet(s, 50, 0, 0)
-        sun.spawnMoons(s, 5)
+        sun.spawnMoons(s, 5, 1)
     }
 
 
