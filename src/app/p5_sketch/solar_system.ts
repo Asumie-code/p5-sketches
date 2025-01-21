@@ -17,10 +17,10 @@ class Planet {
     spawnMoons(s: p5, total: number, level: number) {
         for( let i = 0; i < total; i++) { 
             let r = this.radius / (level * 2)
-            let d = s.random(75, 300)
+            let d = s.random((this.radius + r), (this.radius + r) * 2)
             let o = s.random(-0.01, 0.04)
             this.planets.push(new Planet(s ,r ,d ,o))
-            this.planets[i] = new Planet(s, r, d / level, o)
+            this.planets[i] = new Planet(s, r, d , o)
             if( level < 2) {
                 let num = s.random(0, 4)
                 this.planets[i].spawnMoons(s, num, level + 1)
@@ -39,7 +39,29 @@ class Planet {
         }
     }
 
-    show(s: p5) {
+
+
+    
+
+    show3D(s: p5) {
+        s.push()
+        s.noStroke()
+        s.fill(255)
+        s.rotate(this.angle)
+        s.translate(this.distance, 0)
+        s.sphere(this.radius)
+        if(this.planets.length !== 0) {
+            for(let planet of this.planets) {
+                planet.show3D(s)
+                
+            }
+        }
+        s.pop()
+    }
+
+
+
+    show2D(s: p5) {
         s.push()
         s.rotate(this.angle)
         s.translate(this.distance, 0)
@@ -47,7 +69,7 @@ class Planet {
         s.ellipse(0, 0, this.radius * 2, this.radius * 2 )
         if(this.planets.length !== 0) {
             for(let planet of this.planets) {
-                planet.show(s)
+                planet.show2D(s)
                 
             }
         }
@@ -62,7 +84,8 @@ export const sketch = (s: p5) => {
     let  sun: Planet
 
     s.setup = () => {
-        let canvas2 = s.createCanvas(600, 600);
+        let canvas2 = s.createCanvas(600, 600, s.WEBGL);
+        
         // creating a reference to the div here positions it so you can put things above and below
         // where the sketch is displayed
         canvas2.parent('sketch-holder');
@@ -73,8 +96,9 @@ export const sketch = (s: p5) => {
 
     s.draw = () => {
         s.background(0)
-        s.translate(s.width / 2, s.height / 2)
-        sun.show(s)
+        s.lights()
+        // sun.show2D(s)
+        sun.show3D(s)
         sun.orbit()
     }
 
