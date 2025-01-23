@@ -1,17 +1,21 @@
 import p5 from "p5"
 
+
 class Planet {
     radius: number
     angle: number
     distance: number
     planets: Planet[]
     orbitSpeed: number
+    v: p5.Vector
     constructor(s: p5, r: number, d: number, o: number ) {
         this.radius = r 
         this.distance = d
         this.angle = s.random(s.TWO_PI)
         this.planets = []
         this.orbitSpeed = o
+        this.v = s.createVector(s.random(), s.random(), s.random())
+        this.v.mult(this.distance)
     }
 
     spawnMoons(s: p5, total: number, level: number) {
@@ -48,7 +52,7 @@ class Planet {
         s.noStroke()
         s.fill(255)
         s.rotate(this.angle)
-        s.translate(this.distance, 0)
+        s.translate(this.v.x, this.v.y, this.v.z)
         s.sphere(this.radius)
         if(this.planets.length !== 0) {
             for(let planet of this.planets) {
