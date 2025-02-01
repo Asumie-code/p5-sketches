@@ -9,6 +9,12 @@ export const sketch = (s: p5) => {
     let cells: Cell[] = []
     let current: Cell
 
+
+    function index(i: number, j: number) {
+        if (i < 0 || j < 0 || i > cols - 1 || j > rows - 1) return -1
+        return  i + j * cols
+    }
+
     class Cell {
         i: number 
         j: number 
@@ -39,6 +45,28 @@ export const sketch = (s: p5) => {
             if(this.walls[3]) s.line(x , y + w, x , y )
             
         }
+
+        checkNeighbors() {
+            let neighbors: Cell[] = []
+
+            
+            let top: Cell = cells[index(this.i , this.j - 1)]
+            let right: Cell = cells[index(this.i + 1 , this.j)]
+            let left: Cell = cells[index(this.i - 1 , this.j)]
+            let bottom: Cell = cells[index(this.i , this.j + 1)]
+            
+
+            if(top &&  !top.visited) neighbors.push(top)
+            if(bottom &&  !bottom.visited) neighbors.push(bottom)
+            if(left &&  !left.visited) neighbors.push(left)
+            if(right &&  !right.visited) neighbors.push(right)
+
+            if(neighbors.length > 0) return neighbors[s.floor(s.random(0, neighbors.length))]
+            else  return undefined
+
+        }
+
+
     }
     
   
@@ -67,6 +95,11 @@ export const sketch = (s: p5) => {
             cell.show()
         }
         current.visited = true 
+        let next = current.checkNeighbors()
+        if (next) {
+            next.visited = true 
+            current = next
+        }
     }
 
 }
