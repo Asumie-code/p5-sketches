@@ -15,6 +15,26 @@ export const sketch = (s: p5) => {
         return  i + j * cols
     }
 
+    function removeWalls(a: Cell, b: Cell) {
+        let x = a.i - b.i 
+        if( x === 1) {
+            a.walls[3] = false 
+            b.walls[1] = false  
+        } else if ( x === -1 ) {
+            a.walls[1] = false 
+            b.walls[3] = false 
+        }
+        
+        let y = a.j - b.j 
+        if( y === 1) {
+            a.walls[0] = false 
+            b.walls[2] = false  
+        } else if ( y === -1 ) {
+            a.walls[2] = false 
+            b.walls[0] = false 
+        }
+    }
+
     class Cell {
         i: number 
         j: number 
@@ -34,15 +54,19 @@ export const sketch = (s: p5) => {
             let y = this.j * w
             s.stroke(255)
 
-            if(this.visited) {
-                s.fill(255, 0,255, 100)
-                s.rect(x, y, w, w)
-
-            }
             if(this.walls[0]) s.line(x, y, x + w, y)
             if(this.walls[1]) s.line(x + w , y, x + w, y + w)
             if(this.walls[2]) s.line(x + w , y +  w, x , y + w)
             if(this.walls[3]) s.line(x , y + w, x , y )
+
+
+                
+            if(this.visited) {
+                s.noStroke()
+                s.fill(255, 0,255, 100)
+                s.rect(x, y, w, w)
+
+            }
             
         }
 
@@ -66,6 +90,15 @@ export const sketch = (s: p5) => {
 
         }
 
+
+        highlight () {
+            let x = this.i * w
+            let y = this.j * w
+            s.noStroke() 
+            s.fill(0, 0, 255, 100)
+            s.rect(x, y, w, w)
+
+        }
 
     }
     
@@ -95,9 +128,11 @@ export const sketch = (s: p5) => {
             cell.show()
         }
         current.visited = true 
+        current.highlight()
         let next = current.checkNeighbors()
         if (next) {
             next.visited = true 
+            removeWalls(current, next)
             current = next
         }
     }
