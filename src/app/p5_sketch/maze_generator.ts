@@ -8,6 +8,7 @@ export const sketch = (s: p5) => {
     let w: number = 40
     let cells: Cell[] = []
     let current: Cell
+    let stack: Cell[] = []
 
 
     function index(i: number, j: number) {
@@ -132,8 +133,13 @@ export const sketch = (s: p5) => {
         let next = current.checkNeighbors()
         if (next) {
             next.visited = true 
+
+            stack.push(current)
             removeWalls(current, next)
             current = next
+        } else if(stack.length > 0) {
+            current = stack.pop()!
+            
         }
     }
 
