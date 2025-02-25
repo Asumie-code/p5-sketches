@@ -39,6 +39,11 @@ const data: {title: string, desc: string, path: string}[] = [
         desc: "some desc", 
         path: "maze_generator"
     }, 
+    {
+        title: "some title", 
+        desc: "some desc", 
+        path: "terrain_generation"
+    }, 
     
 ]
 
