@@ -1,0 +1,1 @@
+import"./chunk-7KJRK3NW.js";var h=e=>{let r,n,t=20,o=600,c=600;e.setup=()=>{r=o/t,n=c/t,e.createCanvas(600,600,e.WEBGL).parent("sketch-holder")},e.draw=()=>{e.background(0),e.stroke(255),e.noFill(),e.translate(-o/2,-c/2);for(let a=0;a<n-1;a++){e.beginShape(e.TRIANGLE_STRIP);for(let l=0;l<r;l++)e.vertex(l*t,a*t),e.vertex(l*t,(a+1)*t);e.endShape()}}};export{h as sketch};
