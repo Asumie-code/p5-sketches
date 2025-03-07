@@ -1,1 +1,0 @@
-import"./chunk-7KJRK3NW.js";var h=e=>{let t=.01,a=0,c=0,d=10,n=28,r=8/3;e.setup=()=>{e.createCanvas(800,600,e.WEBGL).parent("sketch-holder"),e.background(0)},e.draw=()=>{let l=.01,o=d*(a-t)*l,k=(t*(n-c)-a)*l,p=(t*a-r*c)*l;t=t+o,a=a+k,c=c+p,e.scale(5),e.stroke(255),e.point(t,a,c)}};export{h as sketch};
