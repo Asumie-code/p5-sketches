@@ -49,6 +49,11 @@ const data: {title: string, desc: string, path: string}[] = [
         desc: "some desc", 
         path: "lorenz_attractor"
     }, 
+    {
+        title: "some title", 
+        desc: "some desc", 
+        path: "reaction_diffusion_algorithm"
+    }, 
     
 ]
 
