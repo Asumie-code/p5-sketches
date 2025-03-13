@@ -27,13 +27,22 @@ export const sketch = (s: p5) => {
 
     s.draw = () => {
         s.background(0)
+        for(let x  = 0; x < s.width; x++) {
+            for (let y = 0 ; y < s.height; y++) {
+                next[x][y].a = grid[x][y].a * 0.2
+                next[x][y].b = grid[x][y].b * 1.2
+            }
+        }
+
+
+
         s.loadPixels()
         for(let x  = 0; x < s.width; x++) {
             for (let y = 0 ; y < s.height; y++) {
                 let pix = (x + y * s.width) * 4
-                s.pixels[pix + 0] = s.floor(grid[x][y].a * 255)
+                s.pixels[pix + 0] = s.floor(next[x][y].a * 255)
                 s.pixels[pix + 1] = 0
-                s.pixels[pix + 2] = s.floor(grid[x][y].b * 255)
+                s.pixels[pix + 2] = s.floor(next[x][y].b * 255)
                 s.pixels[pix + 3] = 255
             }
         }
