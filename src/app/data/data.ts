@@ -55,6 +55,12 @@ const data: {title: string, desc: string, path: string}[] = [
         path: "reaction_diffusion_algorithm"
     }, 
     
+    {
+        title: "some title", 
+        desc: "some desc", 
+        path: "fractal_tree"
+    }, 
+    
 ]
 
 
