@@ -60,6 +60,11 @@ const data: {title: string, desc: string, path: string}[] = [
         desc: "some desc", 
         path: "fractal_tree"
     }, 
+    {
+        title: "some title", 
+        desc: "some desc", 
+        path: "l_system_fractal_tree"
+    }, 
     
 ]
 
