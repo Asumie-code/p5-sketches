@@ -1,0 +1,1 @@
+import"./chunk-7KJRK3NW.js";var b=e=>{let o="A",n=o,t=[];t[0]={a:"A",b:"ABC"},t[1]={a:"B",b:"A"};function f(){let r="";for(let l=0;l<n.length;l++){let c=n.charAt(l),u=!1;for(let a=0;a<t.length;a++)if(u=!0,c==t[a].a){r+=t[a].b;break}u||(r+=c)}n=r,e.createP(n)}e.setup=()=>{e.noCanvas(),e.createP(o),e.createButton("genereate").mousePressed(f)}};export{b as sketch};
