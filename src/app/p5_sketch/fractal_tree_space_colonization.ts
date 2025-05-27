@@ -5,6 +5,16 @@ import p5 from "p5"
 
 export const sketch = (s: p5) => {
 
+    class Branch {
+        pos: p5.Vector
+        parent: Branch | null
+        constructor(pos:p5.Vector, parent: Branch | null = null) {
+            this.pos = pos 
+            this.parent = parent
+        }
+
+    }
+
 
     class Leaf {
         pos: p5.Vector
@@ -25,9 +35,16 @@ export const sketch = (s: p5) => {
 
     class Tree {
         leaves: Leaf[]
+        branches: Branch[]
+        root: Branch
         
         constructor() {
             this.leaves = []
+            this.branches = []
+
+
+            this.root = new Branch(s.createVector(s.width / 2, s.height / 2))
+            this.branches.push(this.root)
             for(let i = 0; i < 100; i++) {
                 this.leaves.push(new Leaf())
             }
