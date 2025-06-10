@@ -71,6 +71,12 @@ const data: {title: string, desc: string, path: string}[] = [
         path: "fractal_tree_space_colonization"
     }, 
     
+    {
+        title: "some title", 
+        desc: "some desc", 
+        path: "3d_fractal_tree"
+    }, 
+    
 ]
 
 
